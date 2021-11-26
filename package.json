@@ -4,7 +4,11 @@
   "main": "lib/index.js",
   "author": "aki77",
   "license": "MIT",
-  "bin": "index.js",
+  "bin": "lib/index.js",
+  "repository": "aki77/windi-to-sass",
+  "files": [
+    "lib/index.js"
+  ],
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "tsc"
