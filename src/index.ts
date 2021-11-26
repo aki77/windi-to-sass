@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import arg from 'arg'
 import * as jsontosass from 'jsontosass'
 import { resolve } from 'path'
