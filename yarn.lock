@@ -25,6 +25,11 @@ extend@^3.0.0:
   resolved "https://registry.yarnpkg.com/extend/-/extend-3.0.2.tgz#f8b1136b4071fbd8eb140aff858b1019ec2915fa"
   integrity sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==
 
+jiti@^1.12.9:
+  version "1.12.9"
+  resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.12.9.tgz#2ce45b265cfc8dc91ebd70a5204807cf915291bc"
+  integrity sha512-TdcJywkQtcwLxogc4rSMAi479G2eDPzfW0fLySks7TPhgZZ4s/tM6stnzayIh3gS/db3zExWJyUx4cNWrwAmoQ==
+
 jsontosass@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/jsontosass/-/jsontosass-0.2.0.tgz#5103a452065f71f1fd049cf2661a4bb22ae570f1"

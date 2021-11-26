@@ -2,10 +2,10 @@ import arg from 'arg'
 import * as jsontosass from 'jsontosass'
 import { resolve } from 'path'
 import kebabCase from 'just-kebab-case'
-// eslint-disable-next-line unicorn/prefer-node-protocol
 import { writeFile } from 'fs/promises'
 import { Processor } from 'windicss/lib'
-import type { Config } from 'windicss/types/interfaces'
+
+const jiti = require('jiti')(__filename)
 
 const doc = `Generate scss from windi theme.
 Usage:
@@ -38,8 +38,8 @@ const paths = args['--paths'] ? args['--paths'].split(',') :  ['colors']
 const output = resolve(args._[0])
 
 const main = async () => {
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  const config = configFile ? require(configFile) as Config : {}
+  const exports = configFile ? jiti(configFile) : undefined
+  const config = exports ? (exports.__esModule ? exports.default : exports) : {}
   const processor = new Processor(config)
 
   const theme = paths.map((path) => {
