@@ -6,6 +6,7 @@ import { resolve } from 'path'
 import kebabCase from 'just-kebab-case'
 import { writeFile } from 'fs/promises'
 import { Processor } from 'windicss/lib'
+import { flattenIhe } from './flatten'
 
 const jiti = require('jiti')(__filename)
 
@@ -13,14 +14,16 @@ const doc = `Generate scss from windi theme.
 Usage:
   windi-to-sass outputFilename
 Options:
-  -h, --help            Print this help message and exit.
-  -p, --paths           Theme paths. The default paths is 'colors'.
-  -f, --config PATH     Set config file path..
+  -h, --help                   Print this help message and exit.
+  -p, --paths PATHS            Theme paths. The default paths is 'colors'.
+  -f, --config CONFIG_PATH     Set config file path.
+  --flatten                    Output flatten sass variables.
 `
 
 const args = arg({
   // Types
   '--help': Boolean,
+  '--flatten': Boolean,
   '--paths': String,
   '--config': String,
 
@@ -48,7 +51,9 @@ const main = async () => {
     const values = processor.theme(path, {}) as any
     return [kebabCase(path), values]
   })
-  const sassData = jsontosass.convert(JSON.stringify(Object.fromEntries(theme)))
+  const themeObject = Object.fromEntries(theme)
+  const sassThemeObject = args['--flatten'] ? flattenIhe(themeObject, '-') : themeObject
+  const sassData = jsontosass.convert(JSON.stringify(sassThemeObject))
   await writeFile(output, sassData)
 }
 
