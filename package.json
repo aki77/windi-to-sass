@@ -1,13 +1,13 @@
 {
   "name": "@aki77/windi-to-sass",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "lib/index.js",
   "author": "aki77",
   "license": "MIT",
   "bin": "lib/index.js",
   "repository": "aki77/windi-to-sass",
   "files": [
-    "lib/index.js"
+    "lib"
   ],
   "scripts": {
     "build": "tsc",
