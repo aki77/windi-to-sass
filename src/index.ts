@@ -6,7 +6,7 @@ import { resolve } from 'path'
 import kebabCase from 'just-kebab-case'
 import { writeFile } from 'fs/promises'
 import { Processor } from 'windicss/lib'
-import { flattenIhe } from './flatten'
+import { flattenObject, normalizeObject } from './utils'
 
 const jiti = require('jiti')(__filename)
 
@@ -51,8 +51,8 @@ const main = async () => {
     const values = processor.theme(path, {}) as any
     return [kebabCase(path), values]
   })
-  const themeObject = Object.fromEntries(theme)
-  const sassThemeObject = args['--flatten'] ? flattenIhe(themeObject, '-') : themeObject
+  const themeObject = normalizeObject(Object.fromEntries(theme))
+  const sassThemeObject = args['--flatten'] ? flattenObject(themeObject, '-') : themeObject
   const sassData = jsontosass.convert(JSON.stringify(sassThemeObject))
   await writeFile(output, sassData)
 }

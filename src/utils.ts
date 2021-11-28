@@ -1,5 +1,4 @@
-// SEE: https://github.com/nwaughachukwuma/flatten-ihe
-export function flattenIhe(obj: any, sep = '.') {
+export function flattenObject(obj: any, sep = '.') {
   const result = {} as Record<string, any>
 
   function recurse(obj: any, current?: string) {
@@ -18,4 +17,14 @@ export function flattenIhe(obj: any, sep = '.') {
   recurse(obj)
 
   return result
+}
+
+export function normalizeObject(obj: Record<string, any>): Record<string, any> {
+  const entries = Object.entries(obj)
+  const newEntries = entries.map(([key, value]) => {
+    const newValue = (value && typeof value === 'object') ? normalizeObject(value) : value
+    return [key, newValue]
+  })
+
+  return Object.fromEntries(newEntries)
 }
