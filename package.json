@@ -1,6 +1,6 @@
 {
   "name": "@aki77/windi-to-sass",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "lib/index.js",
   "author": "aki77",
   "license": "MIT",
@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "arg": "^5.0.1",
-    "jiti": "^1.12.9",
     "jsontosass": "^0.2.0",
     "just-kebab-case": "^4.0.1",
+    "unconfig": "^0.2.2",
     "windicss": "^3.2.1"
   }
 }

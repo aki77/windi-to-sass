@@ -3,7 +3,7 @@
 ## Usage
 
 ```
-npx @aki77/windi-to-sass output.scss -f windi.config.ts -p colors,width,space
+npx @aki77/windi-to-sass output.scss -p colors,width,space
 ```
 
 ## Cli Options
@@ -17,7 +17,6 @@ Usage:
 Options:
   -h, --help                   Print this help message and exit.
   -p, --paths PATHS            Theme paths. The default paths is 'colors'.
-  -f, --config CONFIG_PATH     Set config file path.
   --flatten                    Output flatten sass variables.
 ```
 
